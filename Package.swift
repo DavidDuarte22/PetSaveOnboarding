@@ -1,28 +1,26 @@
-// swift-tools-version: 5.6
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.5
+// The swift-tools-version declares the minimum version of
+// Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
+  // The name of the Swift package goes here.
+  name: "PetSaveOnboarding",
+  // Define the platforms you want your Swift package to work on.
+  platforms: [.iOS(.v15), .macOS(.v10_15)],
+  // It defines the library or executables a Swift package produces. It also makes it available to other apps and packages.
+  products: [
+    .library(
     name: "PetSaveOnboarding",
-    products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "PetSaveOnboarding",
-            targets: ["PetSaveOnboarding"]),
-    ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(
-            name: "PetSaveOnboarding",
-            dependencies: []),
-        .testTarget(
-            name: "PetSaveOnboardingTests",
-            dependencies: ["PetSaveOnboarding"]),
-    ]
+    targets: ["PetSaveOnboarding"]),
+  ],
+  // Add any third-party frameworks the Swift package depends on.
+  dependencies: [],
+  // It defines the target of the Swift package. It may also define other test targets or packages this target depends on.
+  targets: [
+    .target(
+    name: "PetSaveOnboarding",
+    resources: [.copy("Resources/Assets.xcassets")]),
+  ]
 )
